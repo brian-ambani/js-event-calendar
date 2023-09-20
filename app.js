@@ -30,6 +30,7 @@ const drawBlankCalendar = () => {
 
         const dayText = document.createElement('p');
         dayText.classList.add('day-text');
+        dayText.innerText = days[i % 7];
 
         const dayNumber = document.createElement('p');
         dayNumber.classList.add('day-number');
@@ -54,6 +55,14 @@ const updatecalendar = (month, year, events)=> {
     theFirst.setYear(year);
 
     const theFirstDayOfWeek = theFirst.getDay();
+    const monthName = months[month];
+    const monthWithYear = `${year} - ${month}`;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for(let i = 0; i < dayElements.length; i++){
+        const day = dayElements[i];
+
+    }
 }
 
 drawBlankCalendar();
