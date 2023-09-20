@@ -1,5 +1,6 @@
 // selectors
 const calendar = document.getElementById('calendar');
+const monthEl = document.getElementById('month');
 
 // EventListeners
 
@@ -16,7 +17,7 @@ const months = [
     'September',
     'October',
     'November',
-    'December'
+    'December',
 ];
 
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -60,8 +61,9 @@ const updatecalendar = (month, year, events)=> {
 
     const theFirstDayOfWeek = theFirst.getDay();
     const monthName = months[month];
-    const monthWithYear = `${year} - ${month}`;
+    const monthWithYear = `${year} - ${monthName}`;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
+    monthEl.innerText = monthWithYear;
 
     let dayCounter = 1;
 
@@ -77,7 +79,24 @@ const updatecalendar = (month, year, events)=> {
         }
 
     }
-}
+};
+
+
+const previousMonth = () =>{
+    if (currentMonth === 0){
+        currentMonth = 12;
+        currentYear--;
+    }
+    updatecalendar(--currentMonth, currentYear);
+};
+
+const nextMonth = () =>{
+    if (currentMonth === 11){
+        currentMonth = -1;
+        currentYear++;
+    }
+    updatecalendar(++currentMonth, currentYear);
+};
 
 drawBlankCalendar();
 updatecalendar(currentMonth, currentYear);
