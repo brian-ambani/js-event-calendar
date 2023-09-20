@@ -19,6 +19,13 @@ body {
     align-items: center;
 }
 
+header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 400px;
+    justify-content: space-between;
+}
 
 #calendar {
     display: grid;
@@ -37,4 +44,11 @@ body {
 }
 .day:hover {
     background-color: #4f46e5;
+}
+
+.day-number {
+    font-size: 42px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
 }
