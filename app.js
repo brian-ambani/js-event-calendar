@@ -3,7 +3,23 @@ const calendar = document.getElementById('calendar');
 
 // EventListeners
 
+// constants
+const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+];
 
+const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 // functions
 
@@ -29,4 +45,17 @@ const drawBlankCalendar = () => {
     }   
 }
 
+
+const updatecalendar = (month, year, events)=> {
+    const dayElements = document.querySelectorAll('.day');
+
+    const theFirst = new Date();
+    theFirst.setMonth(month);
+    theFirst.setYear(year);
+
+    const theFirstDayOfWeek = theFirst.getDay();
+}
+
 drawBlankCalendar();
+updatecalendar();
+
