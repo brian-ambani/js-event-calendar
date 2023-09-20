@@ -63,12 +63,17 @@ const updatecalendar = (month, year, events)=> {
     const monthWithYear = `${year} - ${month}`;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
+    let dayCounter = 1;
+
     for(let i = 0; i < dayElements.length; i++){
         const day = dayElements[i];
 
         const dayNumber = day.querySelector('.day-number');
-        if(i >= theFirstDayOfWeek && i < daysInMonth){
-            dayNumber.innerText = i;
+        if(i >= theFirstDayOfWeek && dayCounter <= daysInMonth){
+            dayNumber.innerText = dayCounter;
+            dayCounter ++;
+        }else{
+            dayNumber.innerText = '';
         }
 
     }
