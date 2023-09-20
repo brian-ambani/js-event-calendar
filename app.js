@@ -19,7 +19,11 @@ const months = [
     'December'
 ];
 
-const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+const today = new Date();
+let currentMonth = today.getMonth();
+let currentYear = today.getFullYear();
 
 // functions
 
@@ -62,9 +66,14 @@ const updatecalendar = (month, year, events)=> {
     for(let i = 0; i < dayElements.length; i++){
         const day = dayElements[i];
 
+        const dayNumber = day.querySelector('.day-number');
+        if(i >= theFirstDayOfWeek && i < daysInMonth){
+            dayNumber.innerText = i;
+        }
+
     }
 }
 
 drawBlankCalendar();
-updatecalendar();
+updatecalendar(currentMonth, currentYear);
 
